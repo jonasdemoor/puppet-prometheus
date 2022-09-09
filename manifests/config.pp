@@ -92,7 +92,7 @@ class prometheus::config {
   $command_line_flags = if $prometheus_v2 {
     {
       'config.file'                              => "${prometheus::server::config_dir}/${prometheus::server::configname}",
-      'web.listen-address'                       => $prometheus::web_listen_address,
+      'web.listen-address'                       => $prometheus::server::web_listen_address,
       'web.read-timeout'                         => $prometheus::web_read_timeout,
       'web.max-connections'                      => $prometheus::web_max_connections,
       'web.external-url'                         => $prometheus::server::external_url,
@@ -129,7 +129,7 @@ class prometheus::config {
   } else {
     {
       'config.file'                              => "${prometheus::server::config_dir}/${prometheus::server::configname}",
-      'web.listen-address'                       => $prometheus::web_listen_address,
+      'web.listen-address'                       => $prometheus::server::web_listen_address,
       'web.read-timeout'                         => $prometheus::web_read_timeout,
       'web.max-connections'                      => $prometheus::web_max_connections,
       'web.external-url'                         => $prometheus::server::external_url,

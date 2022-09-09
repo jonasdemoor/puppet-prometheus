@@ -49,6 +49,7 @@ class prometheus::server (
   Optional[String[1]] $collect_tag                                              = $prometheus::collect_tag,
   Optional[Integer] $max_open_files                                             = $prometheus::max_open_files,
   Stdlib::Absolutepath $usershell                                               = $prometheus::usershell,
+  Optional[String[1]] $web_listen_address                                       = $prometheus::web_listen_address,
 ) inherits prometheus {
   if( versioncmp($version, '1.0.0') == -1 ) {
     $real_download_url = pick($download_url,
